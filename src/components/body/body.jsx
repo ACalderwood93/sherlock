@@ -1,6 +1,5 @@
 import "./body.css";
 import CaseForm from "../caseForm";
-
 const Body = () => {
   return (
     <>
@@ -13,8 +12,7 @@ const Body = () => {
           </p>
         </div>
       </section>
-      <CaseForm/>
-
+      <CaseForm />
     </>
   );
 };
