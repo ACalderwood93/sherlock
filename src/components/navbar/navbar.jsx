@@ -41,13 +41,13 @@ const NavBar = () => {
   };
   return (
     <nav
-    className="navbar is-primary"
+    className="navbar"
       role="navigation"
       aria-label="main navigation"
     >
       <div className="navbar-brand">
         <a className="navbar-item" href="/">
-          <h1>Sherlock</h1>
+          <img src="/logotext.png" alt="logotext"></img>
         </a>
 
         <a
