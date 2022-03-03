@@ -16,3 +16,8 @@ code {
   width:80%;
   margin:auto;
 }
+
+
+.card-row .card {
+  height:200px;
+}
