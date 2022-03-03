@@ -4,7 +4,7 @@ const Footer = () => {
       <div className="content has-text-centered">
         <p>
           <strong>Sherlock</strong> by{" "}
-          <a href="github.com/Acalderwood93">Andrew Calderwood </a>.
+          <a href="https://github.com/Acalderwood93">Andrew Calderwood </a>.
         </p>
         <p>
           <strong>
