@@ -75,7 +75,7 @@ const NavBar = () => {
               <input
                 ref={caseNumberRef}
                 className="input"
-                type="text"
+                type="number"
                 placeholder="Case Number"
               ></input>
             </div>

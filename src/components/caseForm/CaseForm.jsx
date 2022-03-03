@@ -24,7 +24,7 @@ const CaseForm = () => {
                 <input
                   ref={caseNumberInput}
                   class="input is-large"
-                  type="text"
+                  type="number"
                   placeholder="Case Number"
                 ></input>
               </div>
