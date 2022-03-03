@@ -74,7 +74,7 @@ const NavBar = () => {
             <div className="control">
               <input
                 ref={caseNumberRef}
-                className="input is-primary is-normal"
+                className="input"
                 type="text"
                 placeholder="Case Number"
               ></input>
