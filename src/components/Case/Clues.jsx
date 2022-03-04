@@ -1,7 +1,5 @@
 import ClueCard from "../ClueCard/ClueCard";
 
-import { useState } from "react";
-
 const Clues = ({ clues }) => {
   return (
     <section className="section">
