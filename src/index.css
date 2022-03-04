@@ -33,3 +33,12 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+
+.clue-card-footer{
+  padding:1.2em;
+}
+
+.clue-card-content{
+  max-height: 100px;
+}
