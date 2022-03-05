@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useParams } from "react-router-dom";
+import { useCase } from "../../hooks/useCase";
 
 const ClueCard = ({ title, text }) => {
-  const [hidden, setHidden] = useState(false);
+  const params = useParams();
+  const { toggleClueHidden, getClueHidden } = useCase();
+
   return (
     <div className="column is-6 is-full-mobile">
       <div class="card">
@@ -16,17 +19,27 @@ const ClueCard = ({ title, text }) => {
 
         <div class="card-content">
           <div class="content clue-card-content">
-            { hidden && <p>{text}</p>}
+            {!getClueHidden(parseInt(params.caseNumber), title) && (
+              <p>{text}</p>
+            )}
           </div>
         </div>
 
         <footer class="card-footer clue-card-footer">
           <button
             style={{ padding: "0.5em" }}
-            class={`button ${hidden ? "is-success" : "is-danger"}`}
-            onClick={() => setHidden(!hidden)}
+            class={`button ${
+              !getClueHidden(parseInt(params.caseNumber), title)
+                ? "is-success"
+                : "is-danger"
+            }`}
+            onClick={() => toggleClueHidden(parseInt(params.caseNumber), title)}
           >
-            {`${hidden ? "Hide" : "Reveal"}`}
+            {`${
+              !getClueHidden(parseInt(params.caseNumber), title)
+                ? "Hide"
+                : "Reveal"
+            }`}
           </button>
         </footer>
       </div>

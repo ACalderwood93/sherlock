@@ -1,0 +1,1 @@
+export {CaseNotes as default} from './CaseNotes'

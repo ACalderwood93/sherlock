@@ -4,8 +4,12 @@ import { useQuery } from "@apollo/client";
 import { GET_CASE } from "../../graphql/queries/cases";
 import CaseDescription from "../../components/Case/CaseDescription";
 import Clues from "../../components/Case/Clues";
+import CaseNotes from "../../components/caseNotes";
+import { useCase } from "../../hooks/useCase";
+import { useEffect } from "react";
 
 const Case = () => {
+  const { initCase } = useCase();
   const params = useParams();
   const { loading, data } = useQuery(GET_CASE, {
     variables: {
@@ -13,8 +17,19 @@ const Case = () => {
     },
   });
 
+  useEffect(() => {
+    initCase(parseInt(params.caseNumber));
+  }, [initCase, params.caseNumber]);
+
   if (loading) {
     return <h1>Loading...</h1>;
+  }
+
+  console.log(data);
+  if (!data.case) {
+    return (
+      <h1>oops, this case has not been added yet, please check back later</h1>
+    );
   }
 
   return (
@@ -25,7 +40,7 @@ const Case = () => {
           <p className="subtitle"></p>
         </div>
       </section>
-      <CaseDescription description={data.case.description}/>
+      <CaseDescription description={data.case.description} />
       <section className="section">
         <h1 className="title">The game is afoot</h1>
         <h2 className="subtitle">
@@ -33,14 +48,7 @@ const Case = () => {
           you can reveal their clues.
         </h2>
       </section>
-      <section className="section">
-        <h1 className="title">Notes</h1>
-        <textarea
-          rows="10"
-          className="textarea"
-          placeholder="Notes go here"
-        ></textarea>
-      </section>
+      <CaseNotes />
 
       <Clues clues={data.case.clues} />
     </>
