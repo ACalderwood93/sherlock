@@ -7,7 +7,7 @@ const EditCase = () => {
   const { register, handleSubmit } = useForm();
 
   const params = useParams();
-  const [updateCase, { data: mutationData, loading: mutationloading, error }] =
+  const [updateCase, { error }] =
     useMutation(UPDATE_CASE);
   const { loading, data } = useQuery(GET_CASE, {
     variables: {
