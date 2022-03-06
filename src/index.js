@@ -11,6 +11,8 @@ import reportWebVitals from "./reportWebVitals";
 import Home from "./routes/Home";
 import Case from "./routes/Case";
 import NoMatch from "./routes/NoMatch/NoMatch";
+import Admin from "./routes/Admin";
+import EditCase from "./routes/EditCase";
 
 const client = new ApolloClient({
   uri: "https://api.sherlock.pandapops.me",
@@ -24,12 +26,11 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="/" element={<Home />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/admin/:caseNumber" element={<EditCase />} />
           <Route path="/case/:caseNumber" element={<Case />} />
         </Route>
-        <Route
-          path="*"
-          element={<NoMatch/>}
-        />
+        <Route path="*" element={<NoMatch />} />
       </Routes>
     </BrowserRouter>
   </ApolloProvider>,

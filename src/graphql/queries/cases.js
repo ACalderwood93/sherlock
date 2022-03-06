@@ -1,69 +1,79 @@
 import { gql } from "@apollo/client";
 
 export const GET_CASE = gql`
-query($number: Int) {
+  query ($number: Int) {
     case(number: $number) {
-      name,
-      number,
-      description,
+      name
+      number
+      description
       clues {
         bank {
-          number,
+          number
           text
-        },
+        }
         boarsHead {
-          number,
+          number
           text
-        },
+        }
         carriageDepot {
-          number,
+          number
           text
-        },
+        }
         chemist {
-          text,
+          text
           number
-        },
+        }
         docks {
-          number,
-          text
-        },
-        hotel {
-          text,
           number
-        },
+          text
+        }
+        hotel {
+          text
+          number
+        }
         locksmith {
-          number,
+          number
           text
-        },
+        }
         museum {
-          number,
+          number
           text
-        },
+        }
         newsagents {
-          number,
+          number
           text
-        },
+        }
         park {
-          number,
+          number
           text
-        },
+        }
         pawnbroker {
-          number,
+          number
           text
-        },
+        }
         scotlandYard {
-          number,
+          number
           text
-        },
+        }
         theatre {
-          number,
+          number
           text
-        },
+        }
         tobacconist {
-          number,
+          number
           text
         }
       }
+    }
+  }
+`;
+
+export const GET_ALL_CASES = gql`
+  query {
+    cases {
+      description
+      name
+      number
     }
   }
 `;
