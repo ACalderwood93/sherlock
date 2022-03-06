@@ -3,12 +3,12 @@ import { useQuery, useMutation } from "@apollo/client";
 import { GET_CASE } from "../graphql/queries/cases";
 import { UPDATE_CASE } from "../graphql/Mutations/cases";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 const EditCase = () => {
   const { register, handleSubmit } = useForm();
-
+  const navigate = useNavigate();
   const params = useParams();
-  const [updateCase, { error }] =
-    useMutation(UPDATE_CASE);
+  const [updateCase, { error }] = useMutation(UPDATE_CASE);
   const { loading, data } = useQuery(GET_CASE, {
     variables: {
       number: parseInt(params.caseNumber),
@@ -21,6 +21,7 @@ const EditCase = () => {
         input: data,
       },
     });
+    navigate("/admin");
   };
 
   if (loading || !data) {

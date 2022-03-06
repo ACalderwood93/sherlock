@@ -21,7 +21,7 @@ const Admin = () => {
       >
         Add new +{" "}
       </button>
-      <table className="table is-striped is-hoverable is-fullwidth">
+      <table className="table is-striped is-hoverable">
         <thead>
           <tr>
             <th>Case Number</th>
