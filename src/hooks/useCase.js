@@ -30,6 +30,7 @@ const useCase = () => {
         ["Scotland Yard"]: true,
         ["Boar's Head"]: true,
         Tobacconist: true,
+        Theatre : true,
         notes: "",
       },
     ]);
