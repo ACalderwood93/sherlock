@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 export const GET_CASE = gql`
-  query ($number: Int) {
+  query getCase($number: Int) {
     case(number: $number) {
       name
       number
@@ -69,7 +69,7 @@ export const GET_CASE = gql`
 `;
 
 export const GET_ALL_CASES = gql`
-  query {
+  query getCases{
     cases {
       description
       name

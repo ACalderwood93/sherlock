@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
-import { useQuery, useMutation } from "@apollo/client";
-import { GET_CASE } from "../graphql/queries/cases";
+import { useQuery, useMutation, } from "@apollo/client";
+import { GET_CASE, GET_ALL_CASES } from "../graphql/queries/cases";
 import { UPDATE_CASE } from "../graphql/Mutations/cases";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -10,6 +10,7 @@ const EditCase = () => {
   const params = useParams();
   const [updateCase, { error }] = useMutation(UPDATE_CASE);
   const { loading, data } = useQuery(GET_CASE, {
+    fetchPolicy: 'no-cache',
     variables: {
       number: parseInt(params.caseNumber),
     },
@@ -20,6 +21,10 @@ const EditCase = () => {
       variables: {
         input: data,
       },
+      awaitRefetchQueries : [
+        GET_ALL_CASES,
+        GET_CASE
+      ]
     });
     navigate("/admin");
   };

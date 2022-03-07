@@ -3,7 +3,10 @@ import { GET_ALL_CASES } from "../graphql/queries/cases";
 import { useNavigate } from "react-router-dom";
 
 const Admin = () => {
-  const { loading, data } = useQuery(GET_ALL_CASES);
+  console.log('admin page loaded')
+  const { loading, data } = useQuery(GET_ALL_CASES, {
+    fetchPolicy: 'no-cache'
+  });
   const navigate = useNavigate();
   if (loading || !data) {
     return <h1>No Cases found</h1>;
@@ -21,35 +24,37 @@ const Admin = () => {
       >
         Add new +{" "}
       </button>
-      <table className="table is-striped is-hoverable">
-        <thead>
-          <tr>
-            <th>Case Number</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Edit</th>
-          </tr>
-        </thead>
-        <tbody>
-          {casesByNumber.map((c) => {
-            return (
-              <tr key={c.number}>
-                <td>{c.number}</td>
-                <td>{c.name}</td>
-                <td>{c.description}</td>
-                <td>
-                  <button
-                    className="button is-primary"
-                    onClick={() => navigate(`/admin/${c.number}`)}
-                  >
-                    Edit
-                  </button>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      <div className="table-container">
+        <table className="table is-striped is-hoverable is-fullwidth">
+          <thead>
+            <tr>
+              <th>Case Number</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Edit</th>
+            </tr>
+          </thead>
+          <tbody>
+            {casesByNumber.map((c) => {
+              return (
+                <tr key={c.number}>
+                  <td>{c.number}</td>
+                  <td>{c.name}</td>
+                  <td>{c.description}</td>
+                  <td>
+                    <button
+                      className="button is-primary"
+                      onClick={() => navigate(`/admin/${c.number}`)}
+                    >
+                      Edit
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </>
   );
 };

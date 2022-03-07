@@ -17,6 +17,11 @@ import EditCase from "./routes/EditCase";
 const client = new ApolloClient({
   uri: "https://api.sherlock.pandapops.me",
   cache: new InMemoryCache(),
+  defaultOptions: {
+    query: {
+      fetchPolicy: 'cache-and-network'
+    },
+  },
 });
 
 const rootElement = document.getElementById("root");
