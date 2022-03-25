@@ -43,23 +43,6 @@ input[type=number] {
   max-height: 100px;
 }
 
-textarea { 
-  border-style: none; 
-  border-color: Transparent; 
-  overflow: auto;      
-}
-
-textarea:focus {
-  outline: none !important;
-  border-color: Transparent; 
-  overflow: auto;   
-}
-
 .case-description {
-  width:100%;
-  min-height:30em;
-  height:40em;
-  max-height:70em;
-  overflow: visible;
-  font-size: 14px;
+  white-space: pre-wrap
 }
