@@ -46,3 +46,10 @@ input[type=number] {
 .case-description {
   white-space: pre-wrap
 }
+
+td.case-description-col{
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

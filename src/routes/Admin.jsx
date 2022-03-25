@@ -40,7 +40,7 @@ const Admin = () => {
                 <tr key={c.number}>
                   <td>{c.number}</td>
                   <td>{c.name}</td>
-                  <td>{c.description}</td>
+                  <td className="case-description-col">{c.description}</td>
                   <td>
                     <button
                       className="button is-primary"
