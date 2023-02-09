@@ -15,7 +15,7 @@ import Admin from "./routes/Admin";
 import EditCase from "./routes/EditCase";
 
 const client = new ApolloClient({
-  uri: "https://sherlock-pandapops.stellate.sh",
+  uri: "https://api.sherlock.pandapops.me",
   cache: new InMemoryCache(),
   defaultOptions: {
     query: {
